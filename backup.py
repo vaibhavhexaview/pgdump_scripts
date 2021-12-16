@@ -12,7 +12,7 @@ def dump_table(host,database,user,password,schema,table):
     return p.communicate('{}\n'.format(password))
 
 def main():
-    dump_table('172.22.0.3','Portfolio','admin','admin','Firms','*')
+    dump_table('172.22.0.3','Portfolio','admin','admin','firms','*')
 
 if __name__ == "__main__":
     main()
