@@ -14,5 +14,5 @@ def dump_table(host,database,user,password,schema,table):
 def main():
     dump_table('172.22.0.3','Portfolio','admin','admin','Firms','Firms_Info')
 
-if _name_ == "__main__":
+if __name__ == "__main__":
     main()
