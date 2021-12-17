@@ -3,8 +3,8 @@ import os
 import boto3
 
 session = boto3.Session(
-    aws_access_key_id=os.environ.get("env.AWS_AK"),
-    aws_secret_access_key=os.environ.get("env.AWS_SK"),
+    aws_access_key_id=os.environ.get("AWS_AK"),
+    aws_secret_access_key=os.environ.get("AWS_SK"),
 )
 
 #session = boto3.Session(
