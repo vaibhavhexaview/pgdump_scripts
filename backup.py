@@ -22,7 +22,7 @@ def upload(schema, table):
 
     s3 = session.resource('s3')
 
-    s3.meta.client.upload_file(Filename='{0}_{1}.sql', Bucket='cloudfrontpractic', Key='{0}_{1}.sql').formate(schema, table)
+    s3.meta.client.upload_file(Filename='{0}_{1}.sql', Bucket='cloudfrontpractic', Key='{0}_{1}.sql').format(schema, table)
 
 def main():
     dump_table('172.18.0.2','Portfolio','admin','admin','firm_1','investment_info')
