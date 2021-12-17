@@ -4,8 +4,9 @@ import os
 import boto3
 from subprocess import PIPE,Popen
 
-#schema = 'firm_1'
-#table = 'investment_info'
+schema = 'firm_1'
+table = 'investment_info'
+
 
 def dump_table(host,database,user,password,schema,table):
 
@@ -13,20 +14,22 @@ def dump_table(host,database,user,password,schema,table):
     p = Popen(command, shell=True, env={**os.environ, "PGPASSWORD": password})
     return p.communicate('{}\n'.format(password))
 
+
 def upload(schema, table):
 
     session = boto3.Session(
        aws_access_key_id=os.getenv("AWS_AK"),
        aws_secret_access_key=os.getenv("AWS_SK"),
      )
-
     s3 = session.resource('s3')
-
     s3.meta.client.upload_file(Filename='{0}_{1}.sql'.format(schema, table), Bucket='cloudfrontpractic', Key='{0}_{1}.sql'.format(schema, table))
 
+
+
 def main():
+
     dump_table('172.18.0.2','Portfolio','admin','admin','firm_1','investment_info')
-    upload('firm_1', 'investment_info')
+    upload(schema, table)
 
 if __name__ == "__main__":
     main()
