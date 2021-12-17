@@ -3,8 +3,8 @@ import boto3
 
 
 session = boto3.Session(
-    aws_access_key_id=os.environ['env.AWS_AK'],
-    aws_secret_access_key=os.environ['env.AWS_SK'],
+    aws_access_key_id=os.environ['%env.AWS_AK%'],
+    aws_secret_access_key=os.environ['%env.AWS_SK%'],
 )
 s3 = session.resource('s3')
 
