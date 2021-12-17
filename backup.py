@@ -4,8 +4,10 @@ import os
 import boto3
 from subprocess import PIPE,Popen
 
+
 schema = 'firm_1'
 table = 'investment_info'
+database = 'Portfolio'
 
 
 def dump_table(host,database,user,password,schema,table):
@@ -28,7 +30,7 @@ def upload(schema, table):
 
 def main():
 
-    dump_table('172.18.0.2','Portfolio','admin','admin','firm_1','investment_info')
+    dump_table('172.18.0.2',database,'admin','admin',schema,table)
     upload(schema, table)
 
 if __name__ == "__main__":
